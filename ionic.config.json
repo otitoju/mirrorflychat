@@ -1,0 +1,7 @@
+{
+  "name": "mirrorchat",
+  "integrations": {
+    "capacitor": {}
+  },
+  "type": "angular"
+}
