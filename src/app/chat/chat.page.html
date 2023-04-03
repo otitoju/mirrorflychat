@@ -1,0 +1,56 @@
+<ion-header>
+  <ion-toolbar>
+
+    <ion-icon (click)="handleVideoCall()" name="videocam-outline" slot="end" size="large" style="margin-right: 30px;"></ion-icon>
+    <ion-buttons slot="start">
+      <!-- <ion-icon name="arrow-back-outline"></ion-icon> -->
+      <ion-back-button text="" icon="chevron-back-outline"></ion-back-button>
+    </ion-buttons>
+    <ion-title>Message</ion-title>
+
+    <ion-text [color]="lastSeen === 'Online' ? 'success' : ''">{{lastSeen}}</ion-text>
+    <ion-icon name="call-outline" (click)="handleVoiceCall()" size="large" slot="end" style="margin-right: 30px;"></ion-icon>
+    <!-- <ion-text><i>{{chatHandler.ChatTypingStatus}}</i></ion-text> -->
+    <ion-icon (click)="GetUserProfile()" size=large slot="end" name="person-circle-outline"></ion-icon>
+  </ion-toolbar>
+</ion-header>
+
+<ion-content #content class="bg_color" fullscreen [scrollEvents]="true" >
+
+  <div class="chat_container d-flex">
+      <div class="chat_box d-flex " [ngClass]="{
+        'send': chat.fromUserId !== loggedInUser,
+        'received': chat.fromUserId === loggedInUser
+      }" *ngFor="let chat of Chats">
+          <div class="chat">
+              <h2>{{chat.msgBody.message}}</h2>
+              <p>{{GetDateFormat(chat.createdAt)}}</p>
+          </div>
+      </div>
+  </div>
+</ion-content>
+
+<ion-footer >
+  <ion-toolbar>
+    <ion-row class="align-items-center no-padding">
+      <ion-col size="10">
+        <ion-input [(ngModel)]="chatMsg" (ngModelChange)="handleMessageChange($event)" placeholder="Write your message" type="text" name="name"></ion-input>
+      </ion-col>
+      <ion-col size="2">
+        <ion-button (click)="sendMessage()" color="secondary" type="text" name="name">
+          <ion-icon name="send" slot="end"></ion-icon>
+        </ion-button>
+
+        <!-- <ion-button color="secondary" type="text" name="name">
+          <ion-icon name="document-outline"></ion-icon>
+          <input type="file" (change)="handleFileInput($event)">
+
+        </ion-button> -->
+
+
+
+      </ion-col>
+    </ion-row>
+  </ion-toolbar>
+</ion-footer>
+

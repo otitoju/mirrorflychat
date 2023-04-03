@@ -1,0 +1,359 @@
+ion-header {
+  ion-toolbar {
+      ion-title {
+
+
+          font-size: 1.35rem !important;
+      }
+  }
+}
+
+.bg_img {
+  position: fixed;
+  top: 0;
+  left: 0;
+  width: 100%;
+  height: 320px;
+
+  &::before,
+  &::after {
+      content: '';
+      position: absolute;
+      top: 0;
+      left: 0;
+      width: 100%;
+      height: 100%;
+      background: linear-gradient(0deg, rgba(27, 27, 32, 1) 0%, rgba(27, 27, 32, 1) 0%, rgba(27, 27, 32, 0.4102591720281863) 100%);
+      z-index: 9;
+  }
+
+  &::before {
+      background: var(--bg-color);
+      opacity: .4;
+  }
+}
+
+ion-content {
+  --padding-top: 70px !important;
+  --padding-bottom: 60px !important;
+}
+
+.chat_container {
+  padding: 15px 20px;
+  flex-wrap: wrap;
+  position: relative;
+  z-index: 99;
+
+  .chat_box {
+      width: auto !important;
+      margin-bottom: 14px;
+      min-width: 70%;
+      align-items: flex-start;
+      max-width: 85%;
+
+      .chat {
+          min-width: 150px;
+          border-radius: 8px;
+          max-width: 100%;
+          box-shadow: 0 2px 10px 0px rgba(0, 0, 0, 0.1);
+          padding: 15px;
+
+          h2 {
+              margin: 0;
+              font-size: .95rem;
+              color: var(--white);
+              line-height: 20px;
+              padding-bottom: 5px;
+              font-weight: 400;
+          }
+      }
+
+      p {
+          margin: 0;
+          font-size: 0.75rem;
+          font-weight: 500;
+          color: #8C8C8C;
+      }
+
+      &.received {
+          .chat {
+              background: #25252b;
+
+          }
+      }
+
+      &.send {
+          margin-left: auto;
+          margin-right: 0;
+
+          .chat {
+              background: #fff;
+              color: #25252b;
+              margin-left: auto;
+              margin-right: 0;
+              text-align: right;
+
+              h2 {
+                  color: #25252b;;
+                  font-weight: 400;
+              }
+
+              p {
+                  color: #25252b;
+                  opacity: .6;
+              }
+          }
+      }
+  }
+}
+
+// ion-footer {
+//     background: #424448;
+//     padding: 13px 17px;
+//     --animate-duration: .25s;
+
+//     .form {
+//         margin: 0;
+//         width: 100%;
+//         padding: 0;
+//         background: #25252b;
+//         border-radius: 50px;
+//         padding-left: 14px;
+
+//         ion-list {
+//             padding: 0 !important;
+
+//             ion-item {
+//                 border: none !important;
+//                 background: none;
+//                 margin: 0;
+//                 align-items: center;
+//                 border: 0 !important;
+//                 padding: 0 !important;
+//                 --min-height: unset !important;
+
+//                 ion-input {
+//                     --placeholder-color: #8C8C8C !important;
+//                     --placeholder-font-weight: 400 !important;
+//                     padding: 16px 6px !important;
+//                     font-weight: 500 !important;
+//                 }
+//             }
+
+//             .send_btn {
+//                 padding: 0 14px;
+//                 min-width: fit-content;
+//                 position: relative;
+//                 top: 4px;
+
+//                 ion-icon {
+//                     color: #424448;
+//                     font-size: 1.43rem;
+//                 }
+//             }
+//         }
+//     }
+// }
+
+
+@media only screen
+and (min-device-width: 1024px)
+and (max-device-width: 1366px)
+and (-webkit-min-device-pixel-ratio: 2) {
+  ion-header {
+      ion-toolbar {
+          ion-title {
+              font-size: 30px !important;
+          }
+          ion-buttons {
+              ion-button {
+                  ion-icon {
+                      font-size: 35px;
+                  }
+              }
+          }
+      }
+  }
+
+  ion-content {
+      .chat_container {
+          .chat_box {
+              .chat {
+                  h2 {
+                      font-size: 23px;
+                      br {
+                          margin: 10px;
+                      }
+                  }
+                  p {
+                      font-size: 20px;
+                  }
+              }
+          }
+      }
+  }
+
+  ion-footer {
+      ion-toolbar {
+          ion-row {
+              ion-col {
+                  ion-input {
+                      font-size: 25px;
+                  }
+              }
+          }
+      }
+  }
+}
+
+/* Portrait and Landscape iPad */
+@media only screen
+and (min-device-width: 768px)
+and (max-device-width: 1024px)
+and (-webkit-min-device-pixel-ratio: 1) {
+  ion-header {
+      ion-toolbar {
+          ion-title {
+              font-size: 30px !important;
+          }
+          ion-buttons {
+              ion-button {
+                  ion-icon {
+                      font-size: 35px;
+                  }
+              }
+          }
+      }
+  }
+
+  ion-content {
+      .chat_container {
+          .chat_box {
+              .chat {
+                  h2 {
+                      font-size: 23px;
+                      br {
+                          margin: 10px;
+                      }
+                  }
+                  p {
+                      font-size: 20px;
+                  }
+              }
+          }
+      }
+  }
+
+  ion-footer {
+      ion-toolbar {
+          ion-row {
+              ion-col {
+                  ion-input {
+                      font-size: 25px;
+                  }
+              }
+          }
+      }
+  }
+}
+
+@media
+(min-device-width: 800px)
+and (max-device-width: 1280px)
+and (-webkit-min-device-pixel-ratio: 2) {
+
+  ion-header {
+      ion-toolbar {
+          ion-title {
+              font-size: 30px !important;
+          }
+          ion-buttons {
+              ion-button {
+                  ion-icon {
+                      font-size: 35px;
+                  }
+              }
+          }
+      }
+  }
+
+  ion-content {
+      .chat_container {
+          .chat_box {
+              .chat {
+                  h2 {
+                      font-size: 23px;
+                      br {
+                          margin: 10px;
+                      }
+                  }
+                  p {
+                      font-size: 20px;
+                  }
+              }
+          }
+      }
+  }
+
+  ion-footer {
+      ion-toolbar {
+          ion-row {
+              ion-col {
+                  ion-input {
+                      font-size: 25px;
+                  }
+              }
+          }
+      }
+  }
+}
+
+@media only screen
+and (min-device-width: 712px)
+and (max-device-width: 1024px)
+and (-webkit-min-device-pixel-ratio: 1) {
+  ion-header {
+      ion-toolbar {
+          ion-title {
+              font-size: 30px !important;
+          }
+          ion-buttons {
+              ion-button {
+                  ion-icon {
+                      font-size: 35px;
+                  }
+              }
+          }
+      }
+  }
+
+  ion-content {
+      .chat_container {
+          .chat_box {
+              .chat {
+                  h2 {
+                      font-size: 23px;
+                      br {
+                          margin: 10px;
+                      }
+                  }
+                  p {
+                      font-size: 20px;
+                  }
+              }
+          }
+      }
+  }
+
+  ion-footer {
+      ion-toolbar {
+          ion-row {
+              ion-col {
+                  ion-input {
+                      font-size: 25px;
+                  }
+              }
+          }
+      }
+  }
+}

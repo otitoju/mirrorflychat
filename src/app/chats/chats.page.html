@@ -1,0 +1,35 @@
+<ion-header>
+  <ion-toolbar>
+    <ion-buttons slot="start">
+      <ion-icon name="arrow-back-outline"></ion-icon>
+      <ion-back-button text="" icon="chevron-back-outline"></ion-back-button>
+  </ion-buttons>
+    <ion-title>Chats</ion-title>
+    <ion-icon (click)="GetProfile()" size=large name="person-circle-outline"></ion-icon>
+    <ion-icon (click)="UpdateUserProfile()" slot="end" size="large" name="create-outline"></ion-icon>
+  </ion-toolbar>
+</ion-header>
+
+<ion-content>
+  <div class="divider"> </div>
+  <div class="phone_body">
+    <div class="chat" *ngFor="let user of friends" (click)="OpenChat(user.fromUserId)">
+      <img class="chat_avatar" src="https://www.pngitem.com/pimgs/m/150-1503945_transparent-user-png-default-user-image-png-png.png">
+      <div class="chat_info">
+        <div class="contact_name">{{user.fromUserId}}</div>
+        <div class="contact_msg">{{user.msgBody.message}} </div>
+      </div>
+      <div class="chat_status">
+        <div class="chat_date">{{user.createdAt}}</div>
+        <!-- <div class="chat_new grad_pb"> New </div> -->
+      </div>
+   </div>
+  </div>
+  <!-- <ion-list>
+    <ion-item *ngFor="let user of friends" (click)="OpenChat(user.fromUserId)">
+      <ion-label>{{user.fromUserId}}</ion-label><br/>
+      <ion-label>{{user.msgBody.message}}</ion-label><br/>
+      <ion-label>{{user.createdAt}}</ion-label>
+    </ion-item>
+  </ion-list> -->
+</ion-content>

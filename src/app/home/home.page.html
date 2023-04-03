@@ -14,7 +14,16 @@
   </ion-header>
 
   <div id="container">
-    <strong>Ready to create an app?</strong>
-    <p>Start with Ionic <a target="_blank" rel="noopener noreferrer" href="https://ionicframework.com/docs/components">UI Components</a></p>
+    <ion-label>Message</ion-label>
+    <ion-input></ion-input>
+    <ion-button (click)="InitializeApp()" expand="full">Initialize app</ion-button>
+    <ion-button (click)="RegisterUser()" expand="full">RegisterUser</ion-button>
+    <ion-button (click)="RegisterUser1()" expand="full">RegisterUser1</ion-button>
+    <ion-button (click)="LoginUser()" expand="full">LoginUser</ion-button>
+    <ion-button (click)="sendMessage()" expand="full">send Message</ion-button>
+    <ion-button (click)="sendMessage1()" expand="full">send Message1</ion-button>
+    <ion-button (click)="getRecentChats()" expand="full">get Chats</ion-button>
+    <ion-button (click)="getRecentChats1()" expand="full">get Chats one</ion-button>
+
   </div>
 </ion-content>

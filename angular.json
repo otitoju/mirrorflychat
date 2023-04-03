@@ -32,7 +32,12 @@
               }
             ],
             "styles": ["src/theme/variables.scss", "src/global.scss"],
-            "scripts": []
+            "scripts": [
+              "/JavaScript_SDK/crypt.js",
+              "/JavaScript_SDK/index.js",
+              "/JavaScript_SDK/socket.io.js",
+              "/JavaScript_SDK/utils.js"
+            ]
           },
           "configurations": {
             "production": {
