@@ -1,0 +1,22 @@
+<div class="card">
+  <div class="header">
+    <div class="animation">
+      <span class="icon ring"></span>
+      <div class="cercle one"></div>
+      <div class="cercle two"></div>
+      <div class="cercle three"></div>
+    </div>
+
+    <p class="phoneNumber">{{chatHandler.callerName}}</p>
+    <p class="calling">{{chatHandler.callStatus}}</p>
+  </div>
+
+  <div class="footer">
+    <div (click)="endCall()" class="bouton raccrocher">
+      <span class="icon red"></span>
+    </div>
+    <div (click)="answerCall()" class="bouton decrocher">
+      <span class="icon green"></span>
+    </div>
+  </div>
+  </div>

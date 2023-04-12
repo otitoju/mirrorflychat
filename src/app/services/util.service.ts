@@ -3,6 +3,7 @@ import { Injectable } from '@angular/core';
 import { LoadingController } from '@ionic/angular';
 import { Subscription, interval } from 'rxjs';
 import { ChatHandler } from './chathandler.service';
+import { AlertController } from '@ionic/angular';
 declare var SDK: any;
 
 @Injectable({
@@ -17,7 +18,7 @@ export class UtilService {
 
   constructor(
     private loading: LoadingController,
-    public chatHandler: ChatHandler
+    public chatHandler: ChatHandler,
   ) {
     //console.log("Initialize");
     this.InitializeApp();
@@ -86,6 +87,18 @@ export class UtilService {
     //this.content.scrollToBottom();
   }
 
+  async handleIncomingCall() {
+    return await SDK.answerCall();
+  }
+
+  async handleEndCall() {
+    return await SDK.endCall();
+  }
+
+  async handleDeclineCall() {
+    return await SDK.declineCall();
+  }
+
   public connectionListener = async (response: any) => {
     if (response.status === 'CONNECTED') {
       console.log('Connection Established');
@@ -119,7 +132,27 @@ export class UtilService {
     console.log('User Profile Details Listener', res);
   };
 
+  playAudioSoundForIncomingCall(status:any) {
+    let audio = new Audio();
+    audio.src = "../../assets/ringtone.mp3";
+    if(status === 'incoming') {
+      audio.load();
+      return audio.play();
+    }
+
+    if(status === 'end' && status === 'decline') {
+      return audio.pause()
+    }
+  }
+
   incomingCallListener = (res: any) => {
+    if(res.status === 'calling' && res.callType === 'audio') {
+      const [username, domain] = res.userJid.split("@");
+      this.playAudioSoundForIncomingCall('incoming');
+      this.chatHandler.incoming = true;
+      this.chatHandler.callerName = username;
+      this.chatHandler.callStatus = "Incoming..."
+    }
     console.log("Incoming call listener", res);
   };
 

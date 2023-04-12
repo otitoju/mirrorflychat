@@ -5,6 +5,9 @@ import { Injectable } from "@angular/core";
 })
 export class ChatHandler{
     ChatTypingStatus = '';
+    incoming:boolean = false;
+    callerName:any = '';
+    callStatus:any = '';
 
     constructor(){}
 }
